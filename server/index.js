@@ -3,7 +3,7 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var multer = require('multer')
 var request = require('request')
-var secret = require('secret')
+var secret = require('./secret')
 
 // nutrient api: https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=[YOURID]&appKey=[YOURKEY]
 
@@ -55,7 +55,6 @@ app.get('/', function(req, res){
 
 app.get('/get_data', function(req,res){
 	// give data
-
 })
 
 app.get('/analyse_data', function(req,res){
@@ -63,13 +62,22 @@ app.get('/analyse_data', function(req,res){
 	// little algorithm
 })
 
-app.post('/add_data', function(req, res){
-	var food = req.body.food
-	request('https://api.nutritionix.com/v1_1/search/' + food, function(err, res, body){
-		if (!error && response.statusCode == 200) {
-			var id = body.hits[0]._id
-			request('https://api.nutritionix.com/v1_1/item?id=' + id, function(err, res, body){
-				if (!error && response.statusCode == 200) {
+app.get('/add_data', function(req, res){
+	//var food = req.body.food
+	var food = "spaghetti"
+	request('https://api.nutritionix.com/v1_1/search/' + food + '?appId=' + nutrient_api_id + '&appKey=' + nutrient_api_key, function(err, response, body){
+		if (!err && response.statusCode == 200) {
+			var body = JSON.parse(body)
+			//console.log(body)
+			//console.log(body["hits"])
+			//console.log(body["hits"])
+			//console.log(body["hits"][0]["_id"])
+			var id = body["hits"][0]["_id"]
+			//console.log(body)
+			request('https://api.nutritionix.com/v1_1/item?id=' + id + '&appId=' + nutrient_api_id + '&appKey=' + nutrient_api_key, function(err, response, body){
+				//console.log(body)
+				if (!err && response.statusCode == 200) {
+					var body = JSON.parse(body)
 					var sodium = body.nf_sodium
 					var total_fat = body.nf_total_fat
 					var trans_fat = body.nf_trans_fatty_acid
@@ -96,14 +104,24 @@ app.post('/add_data', function(req, res){
 						iron: iron,
 					})
 
-					data.save()
+					data.save(function(err, data){
+						if(!err){
+							console.log(data)
+							res.send("yee")
+						} else {
+							console.log(err)
+							res.send("shit")
+						}
 
-					res.send("yee")
+					})
+
 				} else {
+					console.log(response)
 					res.send("shit")
 				}
 			})
 		} else {
+			console.log(response)
 			res.send("shit")
 		}
 	})
