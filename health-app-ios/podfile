@@ -1,0 +1,8 @@
+platform :ios, '9.3.1'
+use_frameworks!
+
+target 'health-app-ios' do
+	pod "CloudSight", "~> 1.0"
+	pod 'Alamofire', '~> 3.4.1'
+	pod 'SwiftyJSON'
+end
