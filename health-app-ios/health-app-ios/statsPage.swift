@@ -38,6 +38,7 @@ class statsPage: UIViewController {
         update()
         y.hidden = true
         n.hidden = true
+        wheel.hidden = true
     }
     
     @IBAction func reload(sender: UIButton) {
@@ -78,12 +79,17 @@ class statsPage: UIViewController {
         }
 
     }
+    @IBOutlet weak var wheel: UIActivityIndicatorView!
+    
     func update() {
+        
+        wheel.hidden = false
+        wheel.startAnimating()
         
         labelArray.removeAll()
         warningArray.removeAll()
         
-        label.text = "Loading..."
+        label.text = ""
         otherlabel.text = ""
         statslabel.text = ""
         
@@ -138,6 +144,9 @@ class statsPage: UIViewController {
                     
                     let statstring = self.labelArray.joinWithSeparator(",\n")
                     self.statslabel.text = "Stats: \n \(statstring)"
+                    
+                    self.wheel.stopAnimating()
+                    self.wheel.hidden = true
                 }
         }
 

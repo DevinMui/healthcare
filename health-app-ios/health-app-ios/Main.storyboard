@@ -23,46 +23,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
                                 <rect key="frame" x="0.0" y="28" width="414" height="539"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
-                                <rect key="frame" x="111" y="615" width="193" height="30"/>
-                                <state key="normal" title="Choose an image to analyze"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK7-dx-1ck">
+                                <rect key="frame" x="43" y="28" width="329" height="187"/>
+                                <fontDescription key="fontDescription" name="Tahoma" family="Tahoma" pointSize="41"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
+                                <rect key="frame" x="154" y="572" width="107" height="107"/>
+                                <state key="normal" image="1466966197_free-34"/>
                                 <connections>
                                     <action selector="Takepic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7pc-mM-lp8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.58349707230000003" blue="0.59344529349999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Take Picture" id="CjC-p5-fgu"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="1466964704_device-camera-capture-photo-outline-stroke" selectedImage="1466964704_device-camera-capture-photo-outline-stroke" id="CjC-p5-fgu"/>
                     <navigationItem key="navigationItem" id="yMD-qr-m2g"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="imageView" destination="2Ut-bY-SEm" id="pff-E4-rB8"/>
                         <outlet property="spinner" destination="1eZ-lw-cEv" id="8RT-oq-9u5"/>
+                        <outlet property="titlelabel" destination="PK7-dx-1ck" id="sMe-9z-kmd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2151" y="387"/>
-        </scene>
-        <!--map-->
-        <scene sceneID="jB7-C7-m8K">
-            <objects>
-                <viewController title="map" id="QjB-UD-e9M" customClass="mapPage" customModule="health_app_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Omr-db-Ze4"/>
-                        <viewControllerLayoutGuide type="bottom" id="ybn-ER-v5G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="J67-eX-Nl3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="D88-cK-Br0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dg9-C0-BOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2151" y="-424"/>
+            <point key="canvasLocation" x="2151" y="102"/>
         </scene>
         <!--Stats-->
         <scene sceneID="5xI-GD-rmC">
@@ -79,57 +67,61 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgh-Oj-ZJN">
                                 <rect key="frame" x="10" y="28" width="395" height="57"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-Mi-zbi">
                                 <rect key="frame" x="34" y="93" width="346" height="173"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OI-0Z-BwP">
                                 <rect key="frame" x="20" y="312" width="374" height="367"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-qz-gYo">
-                                <rect key="frame" x="34" y="274" width="46" height="30"/>
-                                <state key="normal" title="No"/>
-                                <connections>
-                                    <action selector="n:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="I5O-kW-clI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L04-bb-D3V">
-                                <rect key="frame" x="321" y="620" width="46" height="30"/>
-                                <state key="normal" title="reload"/>
-                                <connections>
-                                    <action selector="reload:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="shc-mB-BqN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4k-69-cJ0">
-                                <rect key="frame" x="334" y="274" width="46" height="30"/>
-                                <state key="normal" title="Yes"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4k-69-cJ0">
+                                <rect key="frame" x="311" y="257" width="69" height="64"/>
+                                <state key="normal" image="1466965211_checked"/>
                                 <connections>
                                     <action selector="y:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="Y3P-Qh-vHT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-qz-gYo">
+                                <rect key="frame" x="20" y="257" width="88" height="64"/>
+                                <state key="normal" image="1466965218_close"/>
+                                <connections>
+                                    <action selector="n:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="I5O-kW-clI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L04-bb-D3V">
+                                <rect key="frame" x="356" y="630" width="49" height="49"/>
+                                <state key="normal" image="1466965322_Update"/>
+                                <connections>
+                                    <action selector="reload:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="shc-mB-BqN"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5qH-jZ-4Fp">
+                                <rect key="frame" x="197" y="279" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.5834970722532471" blue="0.59344529346832431" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stats" id="vLB-XE-Gtg"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="1466964372_Document" id="vLB-XE-Gtg"/>
                     <connections>
                         <outlet property="label" destination="zgh-Oj-ZJN" id="pUr-PA-gzC"/>
                         <outlet property="n" destination="eBZ-qz-gYo" id="Jde-0n-6u6"/>
                         <outlet property="otherlabel" destination="DyB-Mi-zbi" id="BIL-ig-Oba"/>
                         <outlet property="statslabel" destination="5OI-0Z-BwP" id="5az-Vk-dhT"/>
+                        <outlet property="wheel" destination="5qH-jZ-4Fp" id="6iM-tZ-o8A"/>
                         <outlet property="y" destination="q4k-69-cJ0" id="nnb-fD-x0D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMI-Vu-AhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2151" y="1240"/>
+            <point key="canvasLocation" x="2151" y="872"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="J77-Xd-Bl2">
@@ -143,7 +135,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="dV9-rO-UHa"/>
-                        <segue destination="QjB-UD-e9M" kind="relationship" relationship="viewControllers" id="Czg-Q0-fBY"/>
                         <segue destination="rvQ-IQ-wLk" kind="relationship" relationship="viewControllers" id="xXj-6Z-N7A"/>
                     </connections>
                 </tabBarController>
@@ -152,4 +143,12 @@
             <point key="canvasLocation" x="1432" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1466964372_Document" width="24" height="24"/>
+        <image name="1466964704_device-camera-capture-photo-outline-stroke" width="24" height="24"/>
+        <image name="1466965211_checked" width="64" height="64"/>
+        <image name="1466965218_close" width="64" height="64"/>
+        <image name="1466965322_Update" width="48" height="48"/>
+        <image name="1466966197_free-34" width="128" height="128"/>
+    </resources>
 </document>

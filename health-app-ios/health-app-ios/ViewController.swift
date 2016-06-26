@@ -18,20 +18,21 @@ import Alamofire
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let white_list = ["doughnut", "hot dog", "hamburger", "donut", "burger", "pizza", "bagel", "sandwich", "coke", "coca cola", "soda", "coffee", "water", "chips", "fries", "candy", "redbull"]
+    let white_list = ["doughnut", "hot dog", "hamburger", "donut", "burger", "pizza", "bagel", "sandwich", "coke", "coca cola", "soda", "coffee", "water", "chips", "fries", "candy", "redbull", "spaghetti", "pasta", "rice"]
     let url = "http://16e94129.ngrok.io"
     
     let save = NSUserDefaults.standardUserDefaults()
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
+    @IBOutlet weak var titlelabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var API_KEY = "AIzaSyAdZdiG1Rybp0IgMf44DtPw4mH-vIEdhDg"
     
    
-    
     @IBAction func Takepic(sender: UIButton) {
+        
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
             if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
                 imagePicker.allowsEditing = false
@@ -44,6 +45,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             print("Camera inaccessable")
         }
+        titlelabel.hidden = true
 
     }
     
@@ -73,10 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let theError = error {
             print("An error happened while saving the image = \(theError)")
         } else {
-            print("Displaying")
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.imageView.image = image
-            })
+            self.imageView.image = image
         }
     }
 
