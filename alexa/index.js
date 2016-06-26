@@ -7,6 +7,7 @@ var norm_total_sodium = 10
 var norm_total_total_fat = 10
 var norm_total_sat_fat = 5
 var norm_total_calcium = 5
+var url = "http://16e94129.ngrok.io"
 /**
  * The AlexaSkill prototype and helper functions
  */
@@ -31,13 +32,10 @@ Hello.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest
 		+ ", sessionId: " + session.sessionId);
 	// any initialization logic goes here
 };
-/*
+
 Hello.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
 	console.log("Hello onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-	var speechOutput = "Welcome to the Alexa Skills Kit, you can say hello";
-	var repromptText = "You can say hello";
-	response.ask(speechOutput, repromptText);
-};*/
+};
 
 Hello.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
 	console.log("Hello onSessionEnded requestId: " + sessionEndedRequest.requestId
@@ -51,7 +49,7 @@ Hello.prototype.intentHandlers = {
 
 
 		var options = {
-			url: 'http://16e94129.ngrok.io/get_data'
+			url: url + '/get_data'
 		};
 		request.get(options, function(err, res, body){
 			if(!err){
@@ -87,7 +85,7 @@ Hello.prototype.intentHandlers = {
 				}
 
 				if(norm_total_calcium - 2 > total_calcium){
-					statement += "Mr. Skeletal doesn't like you. Eat some more calcium. "
+					statement += "Mr. Skeletal doesn't like you. Up doot in five seconds and eat some more calcium. "
 				} else if(norm_total_calcium + 2 < total_calcium) {
 					statement += "Three spooky five me. You consumed a ton of calcium and became the next level Mr. Skeletal! "
 				} else {
@@ -99,6 +97,51 @@ Hello.prototype.intentHandlers = {
 				response.tellWithCard("Oh no. We could not reach the server")
 		})
 
+	}, "ScheduleAppointment": function(intent, session, response){
+		var data = {
+			"patient": {
+				"uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+				"email": "john@hondoe.com",
+				"phone": "800-555-1212",
+				"birth_date": "1970-01-25",
+				"first_name": "John",
+				"last_name": "Doe"
+			},
+			"description": "Something is wrong with this kid"
+		}
+		var options = {
+			url: url + "/schedule_appointment",
+			body: JSON.stringify(data),
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			}
+		}
+		request.post(options, function(err, res, body){
+			if(!err)
+				response.tellWithCard("Alright, I made an appointment for you with your doctor.")
+			else
+				response.tellWithCard("We have a problem communicating with the server")
+		})
+	}, "PostFood": function(intent, session, response){
+		var food = intent.slots.food.value
+		var data = {
+			"food": food
+		}
+		var options = {
+			url: url + "/add_data",
+			body: JSON.stringify(data),
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			}
+		}
+		request.post(options, function(err, res, body){
+			if(!err){
+				response.tellWithCard("Added " + food + " as a new data point")
+			} else
+				response.tellWithCard("We have a problem communicating with the server")
+		})
 	}
 };
 
