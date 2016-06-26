@@ -1,0 +1,21 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "b58d08399de52f0a0e9387f582b3e8d6"
+build_time: [520220699, 662389000]
+inputs:
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Alamofire.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Download.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Error.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Manager.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/MultipartFormData.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/NetworkReachabilityManager.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Notifications.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/ParameterEncoding.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Request.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Response.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/ResponseSerialization.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Result.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/ServerTrustPolicy.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Stream.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Timeline.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Upload.swift": [520220688, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/Pods/Alamofire/Source/Validation.swift": [520220688, 0]

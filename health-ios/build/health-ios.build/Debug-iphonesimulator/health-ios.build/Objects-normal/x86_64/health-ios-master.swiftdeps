@@ -1,0 +1,6 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.1 clang-703.0.29)"
+options: "df7a502ecc6eddd014ea9b787e7e1a99"
+build_time: [520221857, 188639000]
+inputs:
+  "/Users/devin/Desktop/healthcare/health-ios/health-ios/ViewController.swift": !dirty [520221856, 0]
+  "/Users/devin/Desktop/healthcare/health-ios/health-ios/AppDelegate.swift": !dirty [520195284, 0]

@@ -49,45 +49,46 @@ Hello.prototype.intentHandlers = {
 	// are you healthy? what are you too high on and what should you consume
 	"GetHealth": function (intent, session, response) {
 
+
 		var options = {
 			url: 'http://16e94129.ngrok.io/get_data'
 		};
 		request.get(options, function(err, res, body){
 			if(!err){
 				var statement = ""
-				var total_total_fat = body.total_total_fat
-				var total_sodium = body.total_sodium
-				var total_sat_fat = body.total_sat_fat
-				var total_calcium = body.total_calcium
-				if(total_total_fat < norm_total_total_fat + 2){
-					// too little fat!
-					statement += "You should consume more total fat. "
-				} else if(norm_total_total_fat - 2 < total_total_fat){
-					// too much fat!
-					statement += "You're consuming too much total fat. "
-				} else {
-					statement += "You consumed just enough total fat. "
-				}
+				body = JSON.parse(body)
+				var total_total_fat = body[0].total_total_fat
+				var total_sodium = body[0].total_sodium
+				var total_sat_fat = body[0].total_sat_fat
+				var total_calcium = body[0].total_calcium
 
-				if(total_sodium < norm_total_sodium + 2){
+				if(norm_total_sodium - 2 > total_sodium){
 					statement += "You should consume more salt. Go play league of legends. "
-				} else if(norm_total_sodium - 2 < total_sodium) {
+				} else if(norm_total_sodium + 2 < total_sodium){
 					statement += "You fucking salty savage! "
 				} else {
 					statement += "You consumed just enough sodium. "
 				}
 
-				if(norm_total_sat_fat - 2 < total_sat_fat){
+				if(norm_total_total_fat - 2 > total_total_fat){
+					statement += "You should consume more total fat. "
+				} else if(norm_total_total_fat + 2 < total_total_fat){
+					statement += "You're consuming too much total fat. "
+				} else {
+					statement += "You consumed just enough total fat. "
+				}
+
+				if(norm_total_sat_fat - 2 > total_sat_fat){
 					statement += "Eat a bit more saturated fat. "
-				} else if(total_sat_fat < norm_total_sat_fat + 2){
+				} else if(norm_total_sat_fat + 2 < total_sat_fat){
 					statement += "Are you our lord and savior, Gaben? Because you're eating a bit too much sat fat. "
-				} else{
+				} else {
 					statement += "You consumed just enough saturated fat. "
 				}
 
-				if(norm_total_calcium - 2 < total_calcium){
+				if(norm_total_calcium - 2 > total_calcium){
 					statement += "Mr. Skeletal doesn't like you. Eat some more calcium. "
-				} else if(total_calcium < norm_total_calcium + 2) {
+				} else if(norm_total_calcium + 2 < total_calcium) {
 					statement += "Three spooky five me. You consumed a ton of calcium and became the next level Mr. Skeletal! "
 				} else {
 					statement += "You consumed just enough calcium. "
@@ -97,7 +98,7 @@ Hello.prototype.intentHandlers = {
 			} else
 				response.tellWithCard("Oh no. We could not reach the server")
 		})
-		//response.tellWithCard("Ayy lmao")
+
 	}
 };
 

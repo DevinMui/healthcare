@@ -87,34 +87,6 @@ app.get('/available_appointments', function(req, res){
 	});
 })
 
-app.get('/schedule_appointment', function(req, res){
-	var data = {
-		"patient": {
-			"uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
-			"email": "john@hondoe.com",
-			"phone": "800-555-1212",
-			"birth_date": "1989-12-09",
-			"first_name": "John",
-			"last_name": "Doe",
-			// "member_id": req.body.member_id
-		},
-		"description": "Hello world"
-	}
-	var options = {
-		path: "/schedule/appointments/ef987693-0a19-447f-814d-f8f3abbf4860",
-		method: "PUT",
-		json: data
-	}
-	pokitdok.apiRequest(options, function(err, response){
-		if(!err){
-			console.log(response)
-			res.send(response)
-		} else {
-			res.send(err)
-		}
-	})
-})
-
 app.post('/schedule_appointment', function(req, res){
 	var data = {
 		"patient": {
@@ -144,6 +116,29 @@ app.post('/schedule_appointment', function(req, res){
 
 app.get('/get_data', function(req,res){
 	// give data
+	Data.aggregate([
+	 {$group:
+		{
+			_id: null,
+			total_sodium: { $sum: "$sodium"},
+			total_total_fat: { $sum: "$total_fat"},
+			total_cholesterol: { $sum: "$cholesterol"},
+			total_sat_fat: { $sum: "$sat_fat"},
+			total_calcium: { $sum: "$calcium"},
+			total_carbs: { $sum: "$carbs"},
+			total_protein: { $sum: "$protein"},
+			total_vit_a: { $sum: "$vit_a"},
+			total_vit_c: { $sum: "$vit_c"},
+			total_trans_fat: { $sum: "$trans_fat"},
+			total_iron: { $sum: "$iron"}
+		}
+	 } ], function(err, results){
+		if(!err){
+			console.log(results)
+			res.send(results)
+		} else
+			res.send(err)
+	})
 })
 
 app.get('/analyse_data', function(req,res){
@@ -157,9 +152,9 @@ app.get('/analyse_data', function(req,res){
 	// carbs: 310 g
 })
 
-app.get('/add_data', function(req, res){
+app.post('/add_data', function(req, res){
 	//var food = req.body.food
-	var food = "spaghetti"
+	var food = req.body.food
 	request('https://api.nutritionix.com/v1_1/search/' + food + '?appId=' + nutrient_api_id + '&appKey=' + nutrient_api_key, function(err, response, body){
 		if (!err && response.statusCode == 200) {
 			var body = JSON.parse(body)

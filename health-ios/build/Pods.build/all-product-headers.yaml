@@ -1,0 +1,196 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Alamofire.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Alamofire-Swift.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Alamofire.framework/Headers/Alamofire-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Alamofire-umbrella.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Alamofire.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Pods.build/Debug-iphonesimulator/Alamofire.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/BFOAuth.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "BFOAuth-Swift.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/BFOAuth.framework/Headers/BFOAuth-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "BFOAuth-umbrella.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/Target Support Files/BFOAuth/BFOAuth-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "BFOAuth.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/BFOAuth/BFOAuth/BFOAuth.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/BFOAuth.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Pods.build/Debug-iphonesimulator/BFOAuth.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/CloudSight.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CloudSight-Swift.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/CloudSight.framework/Headers/CloudSight-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSight-umbrella.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/Target Support Files/CloudSight/CloudSight-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSight.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSight.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightConnection.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightConnection.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightDelete.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightDelete.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightImageRequest.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightImageRequest.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightImageRequestDelegate.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightImageRequestDelegate.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightImageResponse.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightImageResponse.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightQuery.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightQuery.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightQueryDelegate.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightQueryDelegate.h"
+        },
+        {
+          'type': 'file',
+          'name': "CloudSightUploadProgressDelegate.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/CloudSight/CloudSight/CloudSightUploadProgressDelegate.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/CloudSight.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Pods.build/Debug-iphonesimulator/CloudSight.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Pods_health_ios.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-health-ios-umbrella.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/Target Support Files/Pods-health-ios/Pods-health-ios-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_health_ios-Swift.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Pods_health_ios.framework/Headers/Pods_health_ios-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/Pods_health_ios.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Pods.build/Debug-iphonesimulator/Pods-health-ios.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/RequestUtils.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "RequestUtils-Swift.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/RequestUtils.framework/Headers/RequestUtils-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "RequestUtils-umbrella.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/Target Support Files/RequestUtils/RequestUtils-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "RequestUtils.h",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/Pods/RequestUtils/RequestUtils/RequestUtils.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/devin/Desktop/healthcare/health-ios/build/Debug-iphonesimulator/RequestUtils.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/devin/Desktop/healthcare/health-ios/build/Pods.build/Debug-iphonesimulator/RequestUtils.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
