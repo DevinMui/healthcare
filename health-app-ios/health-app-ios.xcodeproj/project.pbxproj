@@ -14,6 +14,8 @@
 		02FD43181D1F795800F52F08 /* health_app_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD43171D1F795800F52F08 /* health_app_iosTests.swift */; };
 		02FD43231D1F795800F52F08 /* health_app_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD43221D1F795800F52F08 /* health_app_iosUITests.swift */; };
 		02FD43311D1F7EE600F52F08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02FD43301D1F7EE600F52F08 /* Main.storyboard */; };
+		02FD43331D1FC11900F52F08 /* statsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD43321D1FC11900F52F08 /* statsPage.swift */; };
+		02FD43351D1FC16100F52F08 /* mapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD43341D1FC16100F52F08 /* mapPage.swift */; };
 		BA1FA863649E5A49753AA004 /* Pods_health_app_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D749E71A66BD916C0CDA5586 /* Pods_health_app_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		02FD43221D1F795800F52F08 /* health_app_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health_app_iosUITests.swift; sourceTree = "<group>"; };
 		02FD43241D1F795800F52F08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02FD43301D1F7EE600F52F08 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		02FD43321D1FC11900F52F08 /* statsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsPage.swift; sourceTree = "<group>"; };
+		02FD43341D1FC16100F52F08 /* mapPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapPage.swift; sourceTree = "<group>"; };
 		B82A0114CC6439F4A1A26370 /* Pods-health-app-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-health-app-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-health-app-ios/Pods-health-app-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		D749E71A66BD916C0CDA5586 /* Pods_health_app_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_health_app_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD600781179CA96800EA331 /* Pods-health-app-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-health-app-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-health-app-ios/Pods-health-app-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				02FD43301D1F7EE600F52F08 /* Main.storyboard */,
 				02FD430B1D1F795800F52F08 /* LaunchScreen.storyboard */,
 				02FD430E1D1F795800F52F08 /* Info.plist */,
+				02FD43321D1FC11900F52F08 /* statsPage.swift */,
+				02FD43341D1FC16100F52F08 /* mapPage.swift */,
 			);
 			path = "health-app-ios";
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FD43331D1FC11900F52F08 /* statsPage.swift in Sources */,
 				02FD43051D1F795800F52F08 /* ViewController.swift in Sources */,
 				02FD43031D1F795800F52F08 /* AppDelegate.swift in Sources */,
+				02FD43351D1FC16100F52F08 /* mapPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

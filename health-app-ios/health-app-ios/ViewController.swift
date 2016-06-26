@@ -18,11 +18,10 @@ import Alamofire
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let white_list = ["doughnut", "hot dog", "computer", "donut"]
-    let url = "http://16e94129.ngrok.io"
+    let white_list = ["doughnut", "hot dog", "hamburger", "donut", "burger", "pizza", "bagel", "sandwich", "coke", "coca cola", "soda", "coffee", "water", "chips", "fries", "candy", "redbull"]
+    let url = "http://52.201.248.82"
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
-    
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -52,6 +51,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let pickedImage:UIImage = (info[UIImagePickerControllerOriginalImage]) as? UIImage {
             let selectorToCall = Selector("imageWasSavedSuccessfully:didFinishSavingWithError:context:")
             UIImageWriteToSavedPhotosAlbum(pickedImage, self, selectorToCall, nil)
+            
+            let binaryImageData = base64EncodeImage(pickedImage)
+            createRequest(binaryImageData)
         }
         imagePicker.dismissViewControllerAnimated(true, completion: {
             // Anything you want to happen when the user saves an image
@@ -179,7 +181,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let numLabels: Int = labelAnnotations.count
                 var labels: Array<String> = []
                 if numLabels > 0 {
-                    var labelResultsText:String = "Labels found: "
                     for index in 0..<numLabels {
                         let label = labelAnnotations[index]["description"].stringValue
                         labels.append(label)
@@ -195,6 +196,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                 Alamofire.request(.POST, self.url + "/add_data", parameters: ["food": label], headers: self.headers, encoding: .JSON)
                                     .responseJSON { response in
                                         print(response.request)
+                                        
+                                        if let JSON = response.result.value {
+                                            print(JSON)
+                                        }
                                 }
                                 out = true
                                 break
