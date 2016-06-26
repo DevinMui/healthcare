@@ -20,19 +20,18 @@ class statsPage: UIViewController {
     @IBOutlet weak var n: UIButton!
     
     let url = NSUserDefaults.standardUserDefaults().stringForKey("url")
+    let id = NSUserDefaults.standardUserDefaults().stringForKey("id")
     let fname = NSUserDefaults.standardUserDefaults().stringForKey("fname")
     let lname = NSUserDefaults.standardUserDefaults().stringForKey("lname")
     let phwn = NSUserDefaults.standardUserDefaults().stringForKey("phwn")
     let email = NSUserDefaults.standardUserDefaults().stringForKey("email")
     let bdate = NSUserDefaults.standardUserDefaults().stringForKey("bdate")
-    let id = NSUserDefaults.standardUserDefaults().stringForKey("uuid")
     
-    let names = ["Calcium", "Carbs", "Cholesterol", "Iron", "Protein", "Saturated Fat", "Sodium", "Fat", "Trans Fat", "Vitamin A", "Vitamin C"]
-    let numbers = [400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400]
+    let names = ["Sodium", "Fat", "Saturated Fat", "Calcium"]
+    let numbers : [Double] = [10, 10, 5, 5]
     var warningArray = [String()]
+    var labelArray = [String()]
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
@@ -41,18 +40,22 @@ class statsPage: UIViewController {
         n.hidden = true
     }
     
+    @IBAction func reload(sender: UIButton) {
+        update()
+    }
+    
     let headers = [
         "Accept": "application/json",
         "Content-Type": "application/json"
     ]
     
-    let params : [String : String] = [
-        "uuid": id,
-        "email": email,
-        "phone": phwn,
-        "birth_date": bdate,
-        "last_name": lname,
-        "first_name": fname
+    let params = [
+        "uuid": "Lh21idoIDHiohoid3iodj",
+        "email": "datboi625625@gmail.com",
+        "phone": "1231231234",
+        "birth_date": "04-20-40",
+        "last_name": "boi",
+        "first_name": "dat"
     ]
     
     @IBAction func n(sender: UIButton) {
@@ -77,9 +80,10 @@ class statsPage: UIViewController {
     }
     func update() {
         
+        labelArray.removeAll()
         warningArray.removeAll()
         
-        label.text = "Loading"
+        label.text = "Loading..."
         otherlabel.text = ""
         statslabel.text = ""
         
@@ -93,30 +97,26 @@ class statsPage: UIViewController {
                 print(response.request)
                 
                 if let JSON = response.result.value {
-                    print(JSON)
-                    let calc = JSON[0]["total_calcium"] as! Int
-                    let carb = JSON[0]["total_carvs"] as! Int
-                    let chol = JSON[0]["total_cholesterol"] as! Int
-                    let iron = JSON[0]["total_iron"] as! Int
-                    let prot = JSON[0]["total_protein"] as! Int
-                    let satfat = JSON[0]["total_sat_fat"] as! Int
-                    let salt = JSON[0]["total_sodium"] as! Int
-                    let fat = JSON[0]["total_fat"] as! Int
-                    let transfat = JSON[0]["total_trans_fat"] as! Int
-                    let vita = JSON[0]["total_vit_a"] as! Int
-                    let vitc = JSON[0]["total_vit_c"] as! Int
-                
-                    let things = [calc, carb, chol, iron, prot, satfat, salt, fat, transfat, vita, vitc]
 
+                    let calc = JSON[0]["total_calcium"] as! Double
+                    let chol = JSON[0]["total_cholesterol"] as! Double
+                    let satfat = JSON[0]["total_sat_fat"] as! Double
+                    let salt = JSON[0]["total_sodium"] as! Double
+                    let fat = JSON[0]["total_total_fat"] as! Double
+                    
+                
+                    let things = [salt, fat, satfat, calc]
+                    
+                    
                     let numLabels: Int = self.names.count
                     
                     if numLabels > 0 {
                         for i in 0..<numLabels {
-                            if (self.numbers[i] + 50 < things[i]) {
-                                self.warningArray.append("Too Much " + self.names[i])
+                            if (self.numbers[i] + 50 > things[i]) {
+                                self.warningArray.append("Excessive " + self.names[i])
                                 
                             } else if (self.numbers[i] - 50 > things[i]) {
-                                self.warningArray.append("Not Enough " + self.names[i])
+                                self.warningArray.append("Insufficient " + self.names[i])
                             }
                         }
                     }
@@ -124,15 +124,20 @@ class statsPage: UIViewController {
                     if (self.warningArray.count == 0) {
                         self.label.text = "Good Job!"
                     } else {
-                        let string = self.warningArray.joinWithSeparator(", \n")
+                        let string = self.warningArray.joinWithSeparator(",\n")
                         self.label.text = "Make an Appointment with your Doctor?"
                         self.otherlabel.text = string
                         self.y.hidden = false
                         self.n.hidden = false
                     }
                     
+                    for i in 0..<self.names.count {
+                        let why = "\(self.names[i]): \(things[i])"
+                        self.labelArray.append(why)
+                    }
                     
-                    self.statslabel.text = "Stats: \n Calcium : \(calc),\n Carbs : \(carb),\n Cholesterol : \(chol),\n Iron : \(iron),\n Protein : \(prot),\n Saturated Fat : \(satfat),\n Sodium : \(salt),\n Fat : \(fat),\n Trans Fat : \(transfat),\n Vitamin A : \(vita),\n Vitamin C : \(vitc)"
+                    let statstring = self.labelArray.joinWithSeparator(",\n")
+                    self.statslabel.text = "Stats: \n \(statstring)"
                 }
         }
 

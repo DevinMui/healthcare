@@ -2,7 +2,7 @@
  * App ID for the skill
  */
 var request = require('request')
-var APP_ID = "amzn1.echo-sdk-ams.app.cd5c5752-bd92-4128-83b3-0c0e98109cb5"; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = "amzn1.echo-sdk-ams.app.6e053460-c529-470a-a1b8-273f6879b54a"; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 var norm_total_sodium = 10
 var norm_total_total_fat = 10
 var norm_total_sat_fat = 5

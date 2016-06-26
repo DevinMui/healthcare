@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-Mi-zbi">
-                                <rect key="frame" x="34" y="93" width="346" height="113"/>
+                                <rect key="frame" x="34" y="93" width="346" height="173"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,18 +94,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4k-69-cJ0">
-                                <rect key="frame" x="334" y="214" width="46" height="30"/>
-                                <state key="normal" title="Yes"/>
-                                <connections>
-                                    <action selector="y:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="Y3P-Qh-vHT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-qz-gYo">
-                                <rect key="frame" x="34" y="214" width="46" height="30"/>
+                                <rect key="frame" x="34" y="274" width="46" height="30"/>
                                 <state key="normal" title="No"/>
                                 <connections>
                                     <action selector="n:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="I5O-kW-clI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L04-bb-D3V">
+                                <rect key="frame" x="321" y="620" width="46" height="30"/>
+                                <state key="normal" title="reload"/>
+                                <connections>
+                                    <action selector="reload:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="shc-mB-BqN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4k-69-cJ0">
+                                <rect key="frame" x="334" y="274" width="46" height="30"/>
+                                <state key="normal" title="Yes"/>
+                                <connections>
+                                    <action selector="y:" destination="rvQ-IQ-wLk" eventType="touchUpInside" id="Y3P-Qh-vHT"/>
                                 </connections>
                             </button>
                         </subviews>
