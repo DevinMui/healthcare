@@ -19,7 +19,8 @@ import Alamofire
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let white_list = ["doughnut", "hot dog", "hamburger", "donut", "burger", "pizza", "bagel", "sandwich", "coke", "coca cola", "soda", "coffee", "water", "chips", "fries", "candy", "redbull", "spaghetti", "pasta", "rice"]
-    let url = "http://16e94129.ngrok.io"
+    
+    let url = "http://52.201.248.82"
     
     let save = NSUserDefaults.standardUserDefaults()
     let imagePicker: UIImagePickerController! = UIImagePickerController()
