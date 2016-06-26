@@ -28,7 +28,7 @@ class statsPage: UIViewController {
     let email = NSUserDefaults.standardUserDefaults().stringForKey("email")
     let bdate = NSUserDefaults.standardUserDefaults().stringForKey("bdate")
     
-    let names = ["Sodium", "Fat", "Saturated Fat", "Calcium"]
+    let names = ["Sodium(mg)", "Fat(g)", "Saturated Fat(g)", "Calcium(g)"]
     let numbers : [Double] = [10000, 10, 5, 5]
     var warningArray = [String()]
     var labelArray = [String()]
