@@ -38,7 +38,6 @@ class statsPage: UIViewController {
         update()
         y.hidden = true
         n.hidden = true
-        wheel.hidden = true
     }
     
     @IBAction func reload(sender: UIButton) {
@@ -143,7 +142,7 @@ class statsPage: UIViewController {
                     }
                     
                     let statstring = self.labelArray.joinWithSeparator(",\n")
-                    self.statslabel.text = "Stats: \n \(statstring)"
+                    self.statslabel.text = "Stats: \n\(statstring)"
                     
                     self.wheel.stopAnimating()
                     self.wheel.hidden = true

@@ -25,8 +25,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let save = NSUserDefaults.standardUserDefaults()
     let imagePicker: UIImagePickerController! = UIImagePickerController()
     
-    @IBOutlet weak var titlelabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var thingslabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var API_KEY = "AIzaSyAdZdiG1Rybp0IgMf44DtPw4mH-vIEdhDg"
@@ -46,7 +45,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             print("Camera inaccessable")
         }
-        titlelabel.hidden = true
 
     }
     
@@ -76,7 +74,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let theError = error {
             print("An error happened while saving the image = \(theError)")
         } else {
-            self.imageView.image = image
+            spinner.startAnimating()
+            spinner.hidden = false
         }
     }
 
@@ -165,7 +164,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let errorObj: JSON = json["error"]
             
             self.spinner.stopAnimating()
-            self.imageView.hidden = true
             
             // Check for errors
             if (errorObj.dictionaryValue != [:]) {
@@ -193,7 +191,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         // if it's not the last item add a comma
                         for item in self.white_list {
                             if (item == label) {
-                                print(label)
+                                self.spinner.stopAnimating()
+                                self.spinner.hidden = true
+                                
+                                self.thingslabel.text = label + " Detected"
                                 Alamofire.request(.POST, self.url + "/add_data", parameters: ["food": label], headers: self.headers, encoding: .JSON)
                                     .responseJSON { response in
                                         print(response.request)
@@ -210,6 +211,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             break
                         }
                     }
+                    self.thingslabel.text = "No Food Detected"
                 } else {
                     print("error")
                 }
@@ -225,14 +227,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.delegate = self
 
         spinner.hidesWhenStopped = true
-        
-        save.setObject("Lh21idoIDHiohoid3iodj", forKey: "uuid")
-        save.setObject("Dat", forKey: "fname")
-        save.setObject("Boi", forKey: "lname")
-        save.setObject("04-20-40", forKey: "bdate")
-        save.setObject("datboi625625@gmail.com", forKey: "email")
-        save.setObject("1231231234", forKey: "phwn")
-        save.setObject("http://16e94129.ngrok.io", forKey: "url")
+
     }
     
     override func didReceiveMemoryWarning() {
