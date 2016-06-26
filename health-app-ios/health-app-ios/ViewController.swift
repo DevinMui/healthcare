@@ -205,13 +205,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                 }
                                 out = true
                                 break
+                            } else {
+                                self.thingslabel.text = "No Food Detected"
                             }
                         }
                         if(out){
                             break
                         }
                     }
-                    self.thingslabel.text = "No Food Detected"
+                    
                 } else {
                     print("error")
                 }

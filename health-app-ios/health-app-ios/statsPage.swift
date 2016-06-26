@@ -19,7 +19,8 @@ class statsPage: UIViewController {
     @IBOutlet weak var y: UIButton!
     @IBOutlet weak var n: UIButton!
     
-    let url = NSUserDefaults.standardUserDefaults().stringForKey("url")
+    let url = "http://52.201.248.82"
+    
     let id = NSUserDefaults.standardUserDefaults().stringForKey("id")
     let fname = NSUserDefaults.standardUserDefaults().stringForKey("fname")
     let lname = NSUserDefaults.standardUserDefaults().stringForKey("lname")
@@ -53,7 +54,7 @@ class statsPage: UIViewController {
         "uuid": "Lh21idoIDHiohoid3iodj",
         "email": "datboi625625@gmail.com",
         "phone": "1231231234",
-        "birth_date": "04-20-40",
+        "birth_date": "1999-05-10",
         "last_name": "boi",
         "first_name": "dat"
     ]
@@ -68,7 +69,7 @@ class statsPage: UIViewController {
         y.hidden = true
         n.hidden = true
         
-        Alamofire.request(.POST, url! + "/schedule_appointment", parameters: params, headers: headers, encoding: .JSON)
+        Alamofire.request(.POST, url + "/schedule_appointment", parameters: params, headers: headers, encoding: .JSON)
             .responseJSON { response in
                 print(response.request)
                 
@@ -102,7 +103,7 @@ class statsPage: UIViewController {
                 print(response.request)
                 
                 if let JSON = response.result.value {
-
+                    print(JSON)
                     let calc = JSON[0]["total_calcium"] as! Double
                     let chol = JSON[0]["total_cholesterol"] as! Double
                     let satfat = JSON[0]["total_sat_fat"] as! Double
@@ -117,10 +118,10 @@ class statsPage: UIViewController {
                     
                     if numLabels > 0 {
                         for i in 0..<numLabels {
-                            if (self.numbers[i] + 50 > things[i]) {
+                            if (self.numbers[i] + 2 > things[i]) {
                                 self.warningArray.append("Excessive " + self.names[i])
                                 
-                            } else if (self.numbers[i] - 50 > things[i]) {
+                            } else if (self.numbers[i] - 2 > things[i]) {
                                 self.warningArray.append("Insufficient " + self.names[i])
                             }
                         }
