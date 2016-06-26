@@ -4,11 +4,16 @@ var mongoose = require('mongoose')
 var multer = require('multer')
 var request = require('request')
 var secret = require('./secret')
+var PokitDok = require('pokitdok-nodejs')
 
 // nutrient api: https://api.nutritionix.com/v1_1/search/cheddar%20cheese?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=[YOURID]&appKey=[YOURKEY]
 
 var nutrient_api_id = secret.nutrient_api_id
 var nutrient_api_key = secret.nutrient_api_key
+var pokitdok_api_id = secret.pokitdok_api_id
+var pokitdok_api_secret = secret.pokitdok_api_secret
+
+var pokitdok = new PokitDok(pokitdok_api_id, pokitdok_api_secret)
 
 var dataSchema = new mongoose.Schema({
 	sodium: Number,
@@ -53,6 +58,90 @@ app.get('/', function(req, res){
 	res.send("hi")
 })
 
+app.get('/available_appointments', function(req, res){
+	var today = new Date()
+	var startDate = today.toISOString()
+	var endDay = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+	var data = {
+		start_date: startDate,
+		end_date: endDay,
+		//member_id: "111111",
+		//location: req.body.location,
+		//patient_uuid: req.body.uuid,
+		location: "San Francisco",
+		patient_uuid: "ef987691-0a19-447f-814d-f8f3abbf4859",
+		appointment_type: "b691b7f9-bfa8-486d-a689-214ae47ea6f8"
+	}
+	var options = {
+		path: '/schedule/appointments/',
+		method: 'GET',
+		json: data
+	}
+	console.dir(options)
+	pokitdok.apiRequest(options, function(err, response) {
+		if (err) {
+			res.send(err)
+		} else {
+			res.send(response) // make user pick one
+		}
+	});
+})
+
+app.get('/schedule_appointment', function(req, res){
+	var data = {
+		"patient": {
+			"uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+			"email": "john@hondoe.com",
+			"phone": "800-555-1212",
+			"birth_date": "1989-12-09",
+			"first_name": "John",
+			"last_name": "Doe",
+			// "member_id": req.body.member_id
+		},
+		"description": "Hello world"
+	}
+	var options = {
+		path: "/schedule/appointments/ef987693-0a19-447f-814d-f8f3abbf4860",
+		method: "PUT",
+		json: data
+	}
+	pokitdok.apiRequest(options, function(err, response){
+		if(!err){
+			console.log(response)
+			res.send(response)
+		} else {
+			res.send(err)
+		}
+	})
+})
+
+app.post('/schedule_appointment', function(req, res){
+	var data = {
+		"patient": {
+			"uuid": req.body.patient_uuid,
+			"email": req.body.email,
+			"phone": req.body.phone,
+			"birth_date": req.body.birth_date,
+			"first_name": req.body.first_name,
+			"last_name": req.body.last_name,
+			// "member_id": req.body.member_id
+		},
+		"description": req.body.description
+	}
+	var options = {
+		path: "/schedule/appointments/ef987693-0a19-447f-814d-f8f3abbf4860",
+		method: "PUT",
+		json: data
+	}
+	pokitdok.apiRequest(options, function(err, response){
+		if(!err){
+			res.send(response)
+		} else {
+			res.send(err)
+		}
+	})
+})
+
 app.get('/get_data', function(req,res){
 	// give data
 })
@@ -60,6 +149,12 @@ app.get('/get_data', function(req,res){
 app.get('/analyse_data', function(req,res){
 	// compare values of datas from mongo
 	// little algorithm
+	// sodium recommended intake: 2300 mg / 2.3g
+	// calc: 1 g
+	// fat: 65 g
+	// cholesterol: 300 mg
+	// protein: 56 g
+	// carbs: 310 g
 })
 
 app.get('/add_data', function(req, res){
@@ -122,7 +217,7 @@ app.get('/add_data', function(req, res){
 			})
 		} else {
 			console.log(response)
-			res.send("shit")
+			res.send(response)
 		}
 	})
 })

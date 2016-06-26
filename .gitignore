@@ -2,3 +2,5 @@ node_modules/
 secret.js
 Pods/
 .DS_Store
+secret.py
+secret.pyc
