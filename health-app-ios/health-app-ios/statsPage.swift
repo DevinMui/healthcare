@@ -118,7 +118,7 @@ class statsPage: UIViewController {
                     
                     if numLabels > 0 {
                         for i in 0..<numLabels {
-                            if (self.numbers[i] + 2 > things[i]) {
+                            if (self.numbers[i] + 2 < things[i]) {
                                 self.warningArray.append("Excessive " + self.names[i])
                                 
                             } else if (self.numbers[i] - 2 > things[i]) {
