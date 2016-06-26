@@ -1,10 +1,22 @@
 PODS:
   - Alamofire (3.4.1)
+  - BFOAuth (1.0.1)
+  - CloudSight (1.0.3):
+    - BFOAuth (~> 1.0)
+    - RequestUtils (~> 1.1)
+  - RequestUtils (1.1.2)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4.1)
+  - CloudSight (~> 1.0)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  BFOAuth: e3c2e4eaae862a89bc301ed6f292d3cd0d6a107b
+  CloudSight: 7974bacb22ec2db1bfb0f0242d9be7f442a78d77
+  RequestUtils: 0f04f89abca3936c6566e2f4c3ce5d252036bc89
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
